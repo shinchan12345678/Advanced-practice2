@@ -8,6 +8,22 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+    <tr>
+	  <th>follows</th>
+	  <th>
+	    <%= link_to following_user_path(user) do %>
+	      <%= user.following.count %>
+	    <% end %>
+	    </th>
+  </tr>
+    <tr>
+	  <th>followers</th>
+	  <th>
+	    <%= link_to followers_user_path(user) do %>
+	      <%= user.followers.count %>
+	    <% end %>
+	   </th>
+  </tr>
 </table>
 
 <div class='row'>
@@ -20,14 +36,14 @@
   <% if current_user.following?(user) %>
     <div class="row mt-3">
       <%= form_with model: current_user.active_relationships.find_by(followed_id: user.id),gitmethod: :delete do |f| %>
-        <%= f.submit "Folloing",class: "btn btn-primary" %>
+        <%= f.submit "フォロー中",class: "btn btn-primary" %>
       <% end %>
     </div>
   <% else %>
     <div class="row mt-3">
       <%= form_with model: current_user.active_relationships.build,url: relationships_path,method: :post do |f| %>
         <div><%= hidden_field_tag  :followed_id, user.id %></div>
-        <%= f.submit "Follow",class: "btn btn-outline-primary" %>
+        <%= f.submit "フォロー",class: "btn btn-outline-primary" %>
       <% end %>
     </div>
   <% end %>
