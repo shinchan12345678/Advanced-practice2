@@ -1,6 +1,12 @@
-<%= form_with url: search_path,method: :get do |f| %>
-  <%= f.text_field :query %>
-  <%= f.select :model ,["Users","Books"] %>
-  <%= f.select :conditions,["前方一致","後方一致","部分一致","完全一致"] %>
-  <%= f.submit "検索" %>
-<% end %>
+<div class="container">
+  <div class="row mx-auto mb-5">
+    <div class="col-md-8 offset-md-4">
+      <%= form_with url: search_path,method: :get do |f| %>
+        <%= f.text_field :query %>
+        <%= f.select :model ,["Users","Books"] %>
+        <%= f.select :conditions,["前方一致","後方一致","部分一致","完全一致"] %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+  </div>
+</div>

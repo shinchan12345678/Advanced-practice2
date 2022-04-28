@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create,:destroy]
-  get "search"=>"search#search",as: :search
+  get "searchs"=>"searchs#search",as: :search
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
