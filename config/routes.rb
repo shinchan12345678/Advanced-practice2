@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searchs/search'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
   root to: "homes#top"
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create,:destroy]
+  get "search"=>"search#search",as: :search
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
