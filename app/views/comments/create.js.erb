@@ -1,3 +1,6 @@
 $('.comment-index').append("<%= escape_javascript(render partial: 'comments/comment', locals: {comment: @comment})%>");
 $('.comment-form')[0].reset();
 $('.update-comment-create').html("コメント数：<%= @book.comments.count %>件");
+$('.delete-comment-target').on('click',function(){
+  $(this).parent().parent().addClass('row-delete-comment-target');
+});
