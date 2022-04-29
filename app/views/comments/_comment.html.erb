@@ -1,0 +1,22 @@
+        <div class="row">
+          <div class="col-3">
+            <span>
+              <%= link_to user_path(comment.user) do %>
+                <%= image_tag comment.user.get_profile_image, size: "60x60" %><br>
+                <%= comment.user.name %>
+              <% end %>
+            </span>
+          </div>
+          <div class="col-4">
+            <span>
+              <%= comment.body %>
+            </span>
+          </div>
+          <div class="col-2">
+            <!--<span  class="btn btn-danger btn-sm">-->
+            <% if comment.user==current_user %>
+              <%= link_to "Destroy",book_comment_path(comment.book,comment),method: :delete,remote: true ,class: "btn btn-sm btn-danger delete-comment-target" %>
+            <% end %>
+              <!--</span>-->
+          </div>
+        </div>
