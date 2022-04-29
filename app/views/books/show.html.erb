@@ -23,15 +23,7 @@
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
           <% else %>
             <td>
-              <% if @book.favorite_exist?(current_user) %>
-                <%= link_to book_favorites_path(@book),method: :delete do %>
-                  <p class="text-danger">★<%= @book.favorites.count %></p>︎
-                <% end %>
-              <% else %>
-                <%= link_to book_favorites_path(@book),method: :post do %>
-                  <p>☆<%= @book.favorites.count %></p>︎
-                <% end %>
-              <% end %>
+              <span class="favorite-btn-action"><%= render 'favorites/favorite-btn',book: @book %></span>
             </td>
             <td>
               <span>コメント数：<%= @book.comments.count %>件</span>

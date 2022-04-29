@@ -1,0 +1,22 @@
+<!--book_index-->
+          <% if book.favorite_exist?(current_user) %>
+            <%= link_to book_favorites_path(book),method: :delete,remote: true do %>
+              <p class="text-danger">★<%= book.favorites.count %></p>︎
+            <% end %>
+          <% else %>
+            <%= link_to book_favorites_path(book),method: :post,remote: true do %>
+              <p>☆<%= book.favorites.count %></p>︎
+            <% end %>
+          <% end %>
+  <!--book_show-->
+  <% if false %>
+              <% if @book.favorite_exist?(current_user) %>
+                <%= link_to book_favorites_path(@book),method: :delete do %>
+                  <p class="text-danger">★<%= @book.favorites.count %></p>︎
+                <% end %>
+              <% else %>
+                <%= link_to book_favorites_path(@book),method: :post do %>
+                  <p>☆<%= @book.favorites.count %></p>︎
+                <% end %>
+              <% end %>
+  <% end %>
